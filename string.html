@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<input type="text" name="input" id="input">
+<button onclick="test()">Submit</button>
+<p id="newdemo"></p>
+<p id="output"></p>
+<p id="insb"></p>
+<p id="insbb"></p>
+
+<script>
+	function test() {
+	
+	/* space removing */
+	var out =document.getElementById("input").value;
+	final = out.replace(/\s+/g,'');
+	console.log(final);
+
+    /*Fibonacci serios */
+	var i = 0;
+	var fb = [];
+
+	fb[0] = 0;
+	fb[1] = 1;
+	console.log(fb[0]);
+	console.log(fb[1]);
+
+	for (i=2; i<=30; i++) {
+
+		fb[i] = fb[i - 2] + fb[i - 1];
+		console.log(fb[i]);
+
+	}
+
+
+    var ar_str = fb.toString();
+    console.log(ar_str);
+    document.getElementById("output").innerHTML = "Output: " +ar_str;
+
+    var ar_str_slic = ar_str.slice(3,13);
+    console.log(ar_str_slic);
+
+    var ar_str_index = ar_str.lastIndexOf("5");
+    console.log(ar_str_index);
+    
+
+    var ar_str_len = ar_str.length;
+    console.log(ar_str_len);
+    console.log(ar_str_len - 20);
+
+    var slice_var = ar_str.substring(12, ar_str_len);
+    console.log(slice_var);
+
+    /*fibo string ar_str*/
+
+    var rep_str = ar_str.replace(/5/g, "b");
+    var low_rep = rep_str.toLowerCase();
+    var up_rep = rep_str.toUpperCase();
+    console.log(up_rep);
+    document.getElementById("insb").innerHTML = "Output: " +rep_str;
+
+    var rep_bb = rep_str.replace(/bb/g, "cc");
+    document.getElementById("insbb").innerHTML = "Output: " +rep_bb;
+
+    var fb_word = "Fibonacci";
+    console.log(up_rep.concat(" ",fb_word));
+
+
+    /* converting string to array */
+
+    var string = "spi global";
+    var split = string.split("");
+    var text = "";
+    for(i = 0; i < split.length; i++) {
+    	text += split[i] + "<br>"
+    }
+    document.getElementById("newdemo").innerHTML = text;
+
+    var str = "The new string";
+    var arr = str.split("");
+    console.log(arr[4]);
+
+	}
+
+
+	
+</script>
+</body>
+</html>
+
+
+</script>
+</body>
+</html>
+
