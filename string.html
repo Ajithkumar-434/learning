@@ -11,10 +11,12 @@
 <p id="output"></p>
 <p id="insb"></p>
 <p id="insbb"></p>
-    <p>ready to push</p>
-    <p>Another system</p>
 
 <script>
+
+ 
+
+  
 	function test() {
 	
 	/* space removing */
@@ -25,7 +27,7 @@
     /*Fibonacci serios */
 	var i = 0;
 	var fb = [];
-
+    
 	fb[0] = 0;
 	fb[1] = 1;
 	console.log(fb[0]);
@@ -88,12 +90,49 @@
 
 	}
 
+    /* array and array methods */
+
+    var arr_m = ["one", "two", "three", "four", "five"];
+    arr_m[2] = "changed";
+    arr_m.push("six");
+    arr_m[7] = "undes";
+    var i;
+    text ="<ul>";
+    for(i = 0; i < arr_m.length; i++) {
+        text += "<li>"+ arr_m[i] +"</li>";
+ 
+    }
+    text +="</ul>";
+    document.getElementById("newdemo").innerHTML = text;
+
+     var newar = ["1", "2", "3", "4", "5"];
+     var sp = newar.slice(2, 5);
+     console.log(sp);
+
+    /* join, pop, push array */
+
+    var arr_j = ["1", "2", "3", "4"];
+    var arr_join = arr_j.join("asdf");
+    console.log(arr_join);
+    var arr_pop = arr_j.pop();
+    console.log(arr_j);
+    var arr_push = arr_j.push("5");
+    console.log(arr_j);
+    var arr_shift = arr_j.shift();
+    console.log(arr_j);
+    console.log(arr_shift);
+    var arr_unsh = arr_j.unshift("0");
+    console.log(arr_j);
+    console.log(arr_unsh);
+    var arr_del = delete arr_j[1];
+    console.log(arr_j);
+
+
 
 	
 </script>
 
 
-</script>
 </body>
 </html>
 
