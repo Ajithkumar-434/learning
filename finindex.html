@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array Objects</title>
+</head>
+<body>
+
+    <select id="select_state" onchange="state(event)">
+        <option value="" disabled selected hidden>Please Choose state...</option>
+        </select>
+    <select id="select_city" onchange="city(event)">
+            <option value="" disabled selected hidden>Please Choose city...</option>
+    </select>
+    <select id="select_area" onchange="area(event)">
+            <option value="" disabled selected hidden>Please Choose area...</option>
+   </select>
+   <input type="submit" value="Search" onclick="search(event)">
+   
+   <p id="output"></p>
+
+    <script>
+        var org_arr = [
+            { city: "Chennai", state: "Tamil Nadu", area: "Chennaiarea1" },
+            { city: "Kolkata", state: "West Bengal", area: "Westarea1"},
+            { city: "Pune", state: "Maharashtra", area: "Punearea1" },
+            { city: "Kanchipuram", state: "Tamil Nadu", area: "Kanchi1" },
+            { city: "Akola", state: "Maharashtra", area: "akolo1" },
+            { city: "Chennai", state: "Tamil Nadu", area: "Chennaiarea2" },
+            { city: "Kolkata", state: "West Bengal", area: "Westarea2"},
+            { city: "Pune", state: "Maharashtra", area: "Punearea2" },
+            { city: "Kanchipuram", state: "Tamil Nadu", area: "Kanchi2" },
+            { city: "Akola", state: "Maharashtra", area: "akolo2" }
+        ];
+
+
+        var sel_state = document.getElementById("select_state");
+        var sel_city = document.getElementById("select_city");
+        var sel_area = document.getElementById("select_area");
+
+        var map = org_arr.map((e) => {
+            var op_state = document.createElement("OPTION");
+            op_state.innerHTML = e.state;
+            sel_state.options.add(op_state);
+
+        })
+
+        var selected_state;
+        function state(e) {
+            selected_state = e.target.value;
+            filt_city = org_arr.filter((elem) => { return elem.state === selected_state})
+           
+            sel_city.innerHTML="";
+            var new_el = document.createElement("option");
+            new_el.innerHTML ="select city";
+            sel_city.appendChild(new_el);
+            new_el.disabled = true;
+
+            var fin_city = filt_city.map((e) => {
+                var new_el = document.createElement("option");
+                new_el.innerHTML = e.city;
+                sel_city.appendChild(new_el);
+            })
+
+          }
+
+        var selected_city;
+        function city(e) {
+            selected_city = e.target.value;
+            filt_area = org_arr.filter((elem) => { return elem.city === selected_city })
+
+            sel_area.innerHTML = "";
+            new_area = document.createElement("option");
+            new_area.innerHTML = "Select area";
+            sel_area.appendChild(new_area); 
+            new_area.disabled = true;
+
+            var fin_area = filt_area.map((e) => {
+                new_area = document.createElement("option");
+                new_area.innerHTML = e.area;
+                sel_area.appendChild(new_area);
+            })
+        }
+        
+        var selected_area;
+        function area(e) {
+           selected_area = e.target.value;
+        }
+        function search(e) {
+           document.getElementById("output").innerHTML = selected_area;
+        }
+          
+
+        
+
+
+
+    </script>
+
+
+    </body>
+    </html>
